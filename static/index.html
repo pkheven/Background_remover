@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Self-hosted Background Remover</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Self-hosted Background Remover</h1>
+      <p>
+        Upload an image, auto-remove the background, refine with brush tools,
+        then download a full-resolution PNG.
+      </p>
+
+      <section class="panel controls">
+        <label class="file-label">
+          <input id="fileInput" type="file" accept="image/*" />
+          Select image
+        </label>
+        <button id="processBtn" disabled>Remove background</button>
+
+        <div class="tool-row" id="editorTools">
+          <span>Edit mask:</span>
+          <button id="eraseBtn" class="active">Erase (remove background)</button>
+          <button id="restoreBtn">Restore (keep foreground)</button>
+          <label>
+            Brush size
+            <input id="brushSize" type="range" min="2" max="120" value="20" />
+          </label>
+          <button id="downloadBtn" disabled>Download PNG (max quality)</button>
+        </div>
+        <p id="status">Choose an image to begin.</p>
+      </section>
+
+      <section class="panel canvas-wrap">
+        <canvas id="previewCanvas"></canvas>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
